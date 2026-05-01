@@ -1,7 +1,5 @@
-# Clone repo kosong
 git clone https://github.com/USERNAME/seruput-coffee.git
 cd seruput-coffee
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -1355,7 +1353,6 @@ aria-label="Chat via WhatsApp">
 </script>
 </body>
 </html>
-
 git add index.html
 git commit -m "Initial commit: Seruput Coffee landing page"
 git push origin main
