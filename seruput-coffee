@@ -1,0 +1,1361 @@
+# Clone repo kosong
+git clone https://github.com/USERNAME/seruput-coffee.git
+cd seruput-coffee
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seruput Coffee Shop | Ruang Ketenangan di Ujungberung Bandung</title>
+
+    <!-- SEO Meta -->
+    <meta name="description" content="Seruput Coffee Shop adalah kedai kopi di Ujungberung Bandung yang menyajikan kopi racikan spesial, pastry segar, dan suasana cozy. Wi-Fi cepat, cocok untuk WFC.">
+    <meta name="keywords" content="coffee shop bandung, kedai kopi ujungberung, kopi susu aren, wfc bandung, tempat nugas bandung, seruput coffee">
+    <meta name="author" content="Seruput Coffee Shop">
+
+    <!-- Open Graph untuk share link di WhatsApp / FB / IG -->
+    <meta property="og:title" content="Seruput Coffee Shop | Ruang Ketenangan di Ujungberung">
+    <meta property="og:description" content="Kopi racikan spesial, pastry fresh from the oven, dan Wi-Fi kencang. Tempat paling cozy buat WFC di Bandung!">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta property="og:url" content="https://seruputcoffee.com">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="id_ID">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Seruput Coffee Shop | Ruang Ketenangan di Ujungberung">
+    <meta name="twitter:description" content="Kopi racikan spesial, pastry fresh from the oven, dan Wi-Fi kencang. Tempat paling cozy buat WFC di Bandung!">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- Schema.org Structured Data untuk LocalBusiness -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "CoffeeShop",
+            "name": "Seruput Coffee Shop",
+            "image": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Jl. Ujungberung Indah No. 42",
+                "addressLocality": "Bandung",
+                "addressRegion": "Jawa Barat",
+                "postalCode": "40611",
+                "addressCountry": "ID"
+            },
+            "telephone": "+622212345678",
+            "priceRange": "Rp 20.000 - Rp 50.000",
+            "openingHours": [
+                "Mo-Fr 08:00-22:00",
+                "Sa 07:00-23:00",
+                "Su 07:00-23:00"
+            ],
+            "servesCuisine": "Coffee, Pastry, Indonesian"
+        }
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+
+    <!-- Font Awesome CDN untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts: Playfair Display + Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['"Playfair Display"', 'Georgia', 'serif'],
+                        'sans': ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        'coffee': {
+                            50: '#FDF6F0',
+                            100: '#F9EBDE',
+                            200: '#F0D5BC',
+                            300: '#E4BA94',
+                            400: '#D49A6A',
+                            500: '#C17D48',
+                            600: '#A86435',
+                            700: '#8B4E2C',
+                            800: '#6F3E25',
+                            900: '#5C3220',
+                            950: '#3E2013',
+                        },
+                        'cream': '#FFF8F2',
+                        'warm': '#FDF3E9',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS untuk Masonry, Lightbox, Accordion & Efek Tambahan -->
+    <style>
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ============ MASONRY GALLERY ============ */
+        .masonry-grid {
+            column-count: 2;
+            column-gap: 1rem;
+        }
+        @media (min-width: 640px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 4;
+                column-gap: 1.25rem;
+            }
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            cursor: pointer;
+        }
+        @media (min-width: 1024px) {
+            .masonry-item {
+                margin-bottom: 1.25rem;
+            }
+        }
+        .masonry-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(62, 32, 19, 0.2);
+        }
+        .masonry-item img {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+        .masonry-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ============ LIGHTBOX ============ */
+        .lightbox-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background-color: rgba(0, 0, 0, 0.92);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .lightbox-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .lightbox-overlay img {
+            max-width: 90vw;
+            max-height: 85vh;
+            border-radius: 1rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            transition: transform 0.35s ease;
+            object-fit: contain;
+        }
+        .lightbox-overlay.active img {
+            transform: scale(1);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            z-index: 101;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: background 0.25s;
+        }
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+        .lightbox-prev,
+        .lightbox-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+            z-index: 101;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: background 0.25s;
+            user-select: none;
+        }
+        .lightbox-prev:hover,
+        .lightbox-next:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+        .lightbox-prev {
+            left: 16px;
+        }
+        .lightbox-next {
+            right: 16px;
+        }
+        @media (max-width: 640px) {
+            .lightbox-prev,
+            .lightbox-next {
+                font-size: 1.4rem;
+                width: 36px;
+                height: 36px;
+            }
+            .lightbox-prev {
+                left: 8px;
+            }
+            .lightbox-next {
+                right: 8px;
+            }
+            .lightbox-close {
+                top: 12px;
+                right: 12px;
+                font-size: 1.6rem;
+                width: 36px;
+                height: 36px;
+            }
+        }
+
+        /* ============ ACCORDION MENU ============ */
+        .accordion-trigger {
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.2s ease;
+        }
+        .accordion-trigger:hover {
+            background-color: #F9EBDE;
+        }
+        .accordion-trigger i {
+            transition: transform 0.35s ease;
+        }
+        .accordion-trigger.open i {
+            transform: rotate(180deg);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s ease, padding 0.3s ease;
+        }
+        .accordion-content.open {
+            max-height: 1200px;
+            /* cukup besar untuk konten */
+        }
+
+        /* ============ FLOATING WHATSAPP PULSE ============ */
+        @keyframes gentlePulse {
+            0%,
+            100% {
+                box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+            }
+            50% {
+                box-shadow: 0 8px 36px rgba(37, 211, 102, 0.6), 0 0 0 12px rgba(37, 211, 102, 0.08);
+            }
+        }
+        .float-wa-pulse {
+            animation: gentlePulse 2.5s ease-in-out infinite;
+        }
+
+        /* ============ HERO OVERLAY ============ */
+        .hero-overlay {
+            background: linear-gradient(to bottom,
+                    rgba(30, 14, 6, 0.55) 0%,
+                    rgba(30, 14, 6, 0.35) 40%,
+                    rgba(30, 14, 6, 0.55) 100%);
+        }
+
+        /* ============ CARD HOVER ============ */
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(62, 32, 19, 0.13);
+        }
+
+        /* ============ TESTIMONIAL DECORATIVE QUOTE ============ */
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -18px;
+            left: 16px;
+            font-size: 5rem;
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #D49A6A;
+            opacity: 0.25;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        /* ============ CUSTOM SCROLLBAR ============ */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FDF6F0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C17D48;
+            border-radius: 10px;
+        }
+
+        /* ============ MAP CONTAINER ============ */
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        @media (max-width: 640px) {
+            .map-container {
+                padding-bottom: 75%;
+            }
+        }
+
+        /* ============ FORM INQUIRY ============ */
+        .form-input {
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+        .form-input:focus {
+            border-color: #C17D48;
+            box-shadow: 0 0 0 3px rgba(193, 125, 72, 0.15);
+            outline: none;
+        }
+    </style>
+</head>
+<body class="font-sans bg-cream text-coffee-900 antialiased overflow-x-hidden">
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-cream/85 backdrop-blur-md border-b border-coffee-200/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-18">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2.5 group">
+                    <div class="w-9 h-9 bg-coffee-800 rounded-full flex items-center justify-center group-hover:bg-coffee-700 transition-colors">
+                        <i class="fa-solid fa-mug-hot text-cream text-sm"></i>
+                    </div>
+                    <span class="font-serif font-bold text-xl lg:text-2xl text-coffee-900 tracking-tight">
+                        Seruput
+                    </span>
+                </a>
+
+                <!-- Desktop Links -->
+                <div class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-coffee-700">
+                    <a href="#keunggulan" class="hover:text-coffee-500 transition-colors">Keunggulan</a>
+                    <a href="#menu" class="hover:text-coffee-500 transition-colors">Menu</a>
+                    <a href="#galeri" class="hover:text-coffee-500 transition-colors">Suasana</a>
+                    <a href="#testimoni" class="hover:text-coffee-500 transition-colors">Testimoni</a>
+                    <a href="#reservasi" class="ml-2 inline-flex items-center gap-2 bg-coffee-800 text-cream px-4 py-2 rounded-full text-sm font-semibold hover:bg-coffee-700 transition-all shadow-md hover:shadow-lg">
+                        <i class="fa-solid fa-calendar-check text-xs"></i> Reservasi
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger -->
+                <button id="menuToggle" class="md:hidden text-coffee-800 text-2xl focus:outline-none" aria-label="Buka menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="md:hidden hidden pb-4 border-t border-coffee-200/50 pt-3 space-y-3 text-center">
+                <a href="#keunggulan" class="block py-2 text-coffee-700 font-medium hover:text-coffee-500 transition-colors">Keunggulan</a>
+                <a href="#menu" class="block py-2 text-coffee-700 font-medium hover:text-coffee-500 transition-colors">Menu</a>
+                <a href="#galeri" class="block py-2 text-coffee-700 font-medium hover:text-coffee-500 transition-colors">Suasana</a>
+                <a href="#testimoni" class="block py-2 text-coffee-700 font-medium hover:text-coffee-500 transition-colors">Testimoni</a>
+                <a href="#reservasi" class="inline-block mt-2 bg-coffee-800 text-cream px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-coffee-700 transition-all">
+                    <i class="fa-solid fa-calendar-check mr-1.5 text-xs"></i> Reservasi
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 lg:pt-18">
+        <!-- Background Image -->
+        <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+        alt="Suasana Seruput Coffee Shop yang hangat dan cozy"
+        class="absolute inset-0 w-full h-full object-cover object-center"
+        loading="eager">
+        <!-- Overlay -->
+        <div class="hero-overlay absolute inset-0 z-10"></div>
+
+        <!-- Content -->
+        <div class="relative z-20 text-center px-4 sm:px-6 max-w-4xl mx-auto">
+            <!-- Label Kecil -->
+            <span class="inline-block bg-cream/90 backdrop-blur-sm text-coffee-800 text-xs sm:text-sm font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-5 sm:mb-6">
+                ✦ Ujungberung, Bandung ✦
+            </span>
+
+            <!-- Headline -->
+            <h1 class="font-serif font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-tight sm:leading-tight md:leading-tight mb-5 sm:mb-6 drop-shadow-lg max-w-3xl mx-auto">
+                Lebih dari Sekadar Kopi,<br>
+                <span class="text-coffee-300 italic">Ini Ruang Ketenanganmu</span><br>
+                di Tengah Kota
+            </h1>
+
+            <!-- Subheadline -->
+            <p class="text-cream/85 text-sm sm:text-base md:text-lg max-w-xl mx-auto mb-7 sm:mb-9 leading-relaxed drop-shadow">
+                Nikmati racikan spesial dari biji kopi pilihan, ditemani pastry segar dan suasana yang bikin betah berlama-lama. Tempat sempurna untuk bekerja, bersantai, atau sekadar melepas penat.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+                <a href="#reservasi" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-coffee-700 hover:bg-coffee-600 text-white font-semibold px-7 py-3.5 rounded-full text-base sm:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <i class="fa-solid fa-calendar-check"></i> Pesan Tempat
+                </a>
+                <a href="#menu" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/20 backdrop-blur-sm border-2 border-white/50 hover:bg-white/30 text-white font-semibold px-7 py-3.5 rounded-full text-base sm:text-lg transition-all duration-300 transform hover:-translate-y-1">
+                    <i class="fa-solid fa-mug-saucer"></i> Lihat Menu
+                </a>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="mt-10 sm:mt-12 animate-bounce">
+                <i class="fa-solid fa-chevron-down text-white/60 text-xl"></i>
+            </div>
+        </div>
+
+        <!-- Wave Decoration Bottom -->
+        <div class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
+            <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
+                <path d="M0 40C240 0 480 80 720 40C960 0 1200 80 1440 40V80H0V40Z" fill="#FFF8F2" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- ==================== KEUNGGULAN / WHY US ==================== -->
+    <section id="keunggulan" class="py-16 sm:py-20 lg:py-24 bg-warm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-12 sm:mb-16">
+                <span class="text-coffee-500 font-semibold tracking-widest uppercase text-xs sm:text-sm">Mengapa Seruput?</span>
+                <h2 class="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-coffee-900 mt-2 mb-3">
+                    Bukan Sekadar Kedai Kopi Biasa
+                </h2>
+                <p class="text-coffee-600 max-w-lg mx-auto text-sm sm:text-base">
+                    Kami hadir dengan standar kualitas yang bikin kamu susah move on.
+                </p>
+            </div>
+
+            <!-- 3 Cards Keunggulan -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Card 1: Biji Kopi Pilihan -->
+                <div class="card-hover bg-white rounded-2xl p-6 sm:p-8 text-center shadow-md border border-coffee-100/60 relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 right-0 h-1.5 bg-coffee-600 rounded-b-md origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                    <div class="w-16 h-16 sm:w-18 sm:h-18 bg-coffee-100 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-coffee-200 transition-colors">
+                        <i class="fa-solid fa-seedling text-coffee-700 text-2xl sm:text-3xl"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg sm:text-xl text-coffee-900 mb-3">Biji Kopi Pilihan</h3>
+                    <p class="text-coffee-600 text-sm leading-relaxed">
+                        Kami memanggang sendiri biji kopi dari petani lokal pilihan. Setiap cangkir diracik dengan presisi untuk menghasilkan rasa yang konsisten dan
+                        <strong class="text-coffee-700">nendang</strong>.
+                    </p>
+                </div>
+
+                <!-- Card 2: Wi-Fi Cepat -->
+                <div class="card-hover bg-white rounded-2xl p-6 sm:p-8 text-center shadow-md border border-coffee-100/60 relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 right-0 h-1.5 bg-coffee-600 rounded-b-md origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                    <div class="w-16 h-16 sm:w-18 sm:h-18 bg-coffee-100 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-coffee-200 transition-colors">
+                        <i class="fa-solid fa-wifi text-coffee-700 text-2xl sm:text-3xl"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg sm:text-xl text-coffee-900 mb-3">Wi-Fi Super Cepat</h3>
+                    <p class="text-coffee-600 text-sm leading-relaxed">
+                        Bebas <em>work from cafe</em> seharian! Koneksi internet kencang, colokan di setiap sudut, dan vibe tenang yang bikin
+                        <strong class="text-coffee-700">produktivitas melesat</strong>.
+                    </p>
+                </div>
+
+                <!-- Card 3: Pastry Segar -->
+                <div class="card-hover bg-white rounded-2xl p-6 sm:p-8 text-center shadow-md border border-coffee-100/60 relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 right-0 h-1.5 bg-coffee-600 rounded-b-md origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                    <div class="w-16 h-16 sm:w-18 sm:h-18 bg-coffee-100 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-coffee-200 transition-colors">
+                        <i class="fa-solid fa-bread-slice text-coffee-700 text-2xl sm:text-3xl"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg sm:text-xl text-coffee-900 mb-3">Pastry & Roti Segar</h3>
+                    <p class="text-coffee-600 text-sm leading-relaxed">
+                        Setiap pagi, dapur kami memproduksi roti bakar, dimsum, dan aneka pastry hangat. Dijamin <strong class="text-coffee-700">fresh from the oven</strong>!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MENU FAVORIT / BEST SELLER ==================== -->
+    <section id="menu" class="py-16 sm:py-20 lg:py-24 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-12 sm:mb-16">
+                <span class="text-coffee-500 font-semibold tracking-widest uppercase text-xs sm:text-sm">Best Seller</span>
+                <h2 class="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-coffee-900 mt-2 mb-3">
+                    Menu Favorit Pelanggan
+                </h2>
+                <p class="text-coffee-600 max-w-lg mx-auto text-sm sm:text-base">
+                    Racikan andalan yang selalu jadi rebutan. Wajib coba saat mampir!
+                </p>
+            </div>
+
+            <!-- 4 Menu Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                <!-- Menu 1: Es Kopi Susu Aren -->
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-coffee-100/50 group flex flex-col">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80"
+                        alt="Es Kopi Susu Aren"
+                        class="w-full h-48 sm:h-52 object-cover group-hover:scale-110 transition-transform duration-500"
+                        loading="lazy">
+                        <span class="absolute top-3 left-3 bg-coffee-800 text-cream text-xs font-bold px-3 py-1 rounded-full">
+                            #1 Best Seller
+                        </span>
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-serif font-bold text-lg text-coffee-900 mb-1.5">Es Kopi Susu Aren</h3>
+                        <p class="text-coffee-500 text-sm leading-relaxed mb-4 flex-1">
+                            Perpaduan sempurna espresso double shot dengan gula aren asli dan susu segar. Manisnya pas, kopinya mantap.
+                        </p>
+                        <div class="flex items-center justify-between border-t border-coffee-100 pt-3 mb-3">
+                            <span class="text-coffee-400 text-xs line-through">Rp 25.000</span>
+                            <span class="font-bold text-coffee-800 text-lg">Rp 22.000</span>
+                        </div>
+                        <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20pesan%20Es%20Kopi%20Susu%20Aren" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-coffee-700 hover:bg-coffee-600 text-white font-semibold px-4 py-2.5 rounded-full text-sm transition-all duration-300 hover:shadow-lg hover:shadow-coffee-700/25 group/btn w-full">
+                            <i class="fa-brands fa-whatsapp text-base group-hover/btn:scale-110 transition-transform"></i>
+                            Pesan Ini
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Menu 2: Es Kopi Susu Spesial Seruput -->
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-coffee-100/50 group flex flex-col">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80"
+                        alt="Es Kopi Susu Spesial Seruput"
+                        class="w-full h-48 sm:h-52 object-cover group-hover:scale-110 transition-transform duration-500"
+                        loading="lazy">
+                        <span class="absolute top-3 left-3 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                            Signature
+                        </span>
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-serif font-bold text-lg text-coffee-900 mb-1.5">Es Kopi Susu Spesial Seruput</h3>
+                        <p class="text-coffee-500 text-sm leading-relaxed mb-4 flex-1">
+                            Racikan rahasia kami — espresso, susu kental manis premium, dan sentuhan karamel. Cuma ada di Seruput.
+                        </p>
+                        <div class="flex items-center justify-between border-t border-coffee-100 pt-3 mb-3">
+                            <span class="text-coffee-400 text-xs line-through">Rp 28.000</span>
+                            <span class="font-bold text-coffee-800 text-lg">Rp 25.000</span>
+                        </div>
+                        <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20pesan%20Es%20Kopi%20Susu%20Spesial%20Seruput" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-coffee-700 hover:bg-coffee-600 text-white font-semibold px-4 py-2.5 rounded-full text-sm transition-all duration-300 hover:shadow-lg hover:shadow-coffee-700/25 group/btn w-full">
+                            <i class="fa-brands fa-whatsapp text-base group-hover/btn:scale-110 transition-transform"></i>
+                            Pesan Ini
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Menu 3: Matcha Latte -->
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-coffee-100/50 group flex flex-col">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80"
+                        alt="Matcha Latte"
+                        class="w-full h-48 sm:h-52 object-cover group-hover:scale-110 transition-transform duration-500"
+                        loading="lazy">
+                        <span class="absolute top-3 left-3 bg-green-700 text-white text-xs font-bold px-3 py-1 rounded-full">
+                            Premium
+                        </span>
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-serif font-bold text-lg text-coffee-900 mb-1.5">Matcha Latte</h3>
+                        <p class="text-coffee-500 text-sm leading-relaxed mb-4 flex-1">
+                            Matcha grade A dari Uji, Jepang, dipadukan dengan susu steamed yang lembut. Rasa earthy yang bikin hati tenang.
+                        </p>
+                        <div class="flex items-center justify-between border-t border-coffee-100 pt-3 mb-3">
+                            <span class="text-coffee-400 text-xs line-through">Rp 32.000</span>
+                            <span class="font-bold text-coffee-800 text-lg">Rp 28.000</span>
+                        </div>
+                        <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20pesan%20Matcha%20Latte" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-coffee-700 hover:bg-coffee-600 text-white font-semibold px-4 py-2.5 rounded-full text-sm transition-all duration-300 hover:shadow-lg hover:shadow-coffee-700/25 group/btn w-full">
+                            <i class="fa-brands fa-whatsapp text-base group-hover/btn:scale-110 transition-transform"></i>
+                            Pesan Ini
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Menu 4: Roti Bakar Edankeun -->
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md border border-coffee-100/50 group flex flex-col">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80"
+                        alt="Roti Bakar Edankeun"
+                        class="w-full h-48 sm:h-52 object-cover group-hover:scale-110 transition-transform duration-500"
+                        loading="lazy">
+                        <span class="absolute top-3 left-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                            Favorite
+                        </span>
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-serif font-bold text-lg text-coffee-900 mb-1.5">Roti Bakar Edankeun</h3>
+                        <p class="text-coffee-500 text-sm leading-relaxed mb-4 flex-1">
+                            Roti bakar tebal dengan olesan butter, topping cokelat lumer, keju, dan susu kental manis. Gigitan pertama bikin nagih!
+                        </p>
+                        <div class="flex items-center justify-between border-t border-coffee-100 pt-3 mb-3">
+                            <span class="text-coffee-400 text-xs line-through">Rp 22.000</span>
+                            <span class="font-bold text-coffee-800 text-lg">Rp 20.000</span>
+                        </div>
+                        <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20pesan%20Roti%20Bakar%20Edankeun" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-coffee-700 hover:bg-coffee-600 text-white font-semibold px-4 py-2.5 rounded-full text-sm transition-all duration-300 hover:shadow-lg hover:shadow-coffee-700/25 group/btn w-full">
+                            <i class="fa-brands fa-whatsapp text-base group-hover/btn:scale-110 transition-transform"></i>
+                            Pesan Ini
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MENU LENGKAP (ACCORDION) ==================== -->
+    <section class="py-16 sm:py-20 lg:py-24 bg-warm">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-10 sm:mb-14">
+                <span class="text-coffee-500 font-semibold tracking-widest uppercase text-xs sm:text-sm">Menu Lengkap</span>
+                <h2 class="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-coffee-900 mt-2 mb-3">
+                    Semua yang Kami Sajikan
+                </h2>
+                <p class="text-coffee-600 max-w-lg mx-auto text-sm sm:text-base">
+                    Klik kategori untuk melihat daftar menu dan harga.
+                </p>
+            </div>
+
+            <!-- Accordion Wrapper -->
+            <div class="space-y-3">
+                <!-- Kategori 1: Kopi Signature -->
+                <div class="bg-white rounded-2xl shadow-md border border-coffee-100/50 overflow-hidden">
+                    <button class="accordion-trigger w-full flex items-center justify-between px-5 sm:px-6 py-4 sm:py-5 text-left" aria-expanded="false">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 bg-coffee-100 rounded-xl flex items-center justify-center text-coffee-700"><i class="fa-solid fa-mug-hot"></i></span>
+                            <span class="font-serif font-bold text-lg text-coffee-900">Kopi Signature</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-coffee-500 text-sm"></i>
+                    </button>
+                    <div class="accordion-content px-5 sm:px-6">
+                        <div class="pb-5 space-y-3 border-t border-coffee-100 pt-3">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="font-semibold text-coffee-900 text-sm">Es Kopi Susu Aren</p>
+                                    <p class="text-coffee-500 text-xs">Double shot espresso + gula aren + susu segar</p>
+                                </div>
+                                <span class="font-bold text-coffee-800 text-sm whitespace-nowrap ml-4">Rp 22.000</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="font-semibold text-coffee-900 text-sm">Es Kopi Susu Spesial Seruput</p>
+                                    <p class="text-coffee-500 text-xs">Racikan rahasia espresso + karamel</p>
+                                </div>
+                                <span class="font-bold text-coffee-800 text-sm whitespace-nowrap ml-4">Rp 25.000</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="font-semibold text-coffee-900 text-sm">Cappuccino</p>
+                                    <p class="text-coffee-500 text-xs">Espresso + steamed milk + busa tebal</p>
+                                </div>
+                                <span class="font-bold text-coffee-800 text-sm whitespace-nowrap ml-4">Rp 28.000</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="font-semibold text-coffee-900 text-sm">Americano</p>
+                                    <p class="text-coffee-500 text-xs">Espresso + air panas — simpel & kuat</p>
+                                </div>
+                                <span class="font-bold text-coffee-800 text-sm whitespace-nowrap ml-4">Rp 20.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kategori 2: Non-Kopi -->
+                <div class="bg-white rounded-2xl shadow-md border border-coffee-100/50 overflow-hidden">
+                    <button class="accordion-trigger w-full flex items-center justify-between px-5 sm:px-6 py-4 sm:py-5 text-left" aria-expanded="false">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center text-green-700"><i class="fa-solid fa-leaf"></i></span>
+                            <span class="font-serif font-bold text-lg text-coffee-900">Non-Kopi</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-coffee-500 text-sm"></i>
+                    </button>
+                    <div class="accordion-content px-5 sm:px-6">
+                        <div class="pb-5 space-y-3 border-t border-coffee-100 pt-3">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="font-semibold text-coffee-900 text-sm">Matcha Latte</p>
+                                    <p class="text-coffee-500 text-xs">Matcha grade A Uji + susu steamed</p>
+                                </div>
+                                <span class="font-bold text-coffee-800 text-sm whitespace-nowrap ml-4">Rp 28.000</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="font-semibold text-coffee-900 text-sm">Thai Tea</p>
+                                    <p class="text-coffee-500 text-xs">Teh Thailand asli + susu kental manis</p>
+                                </div>
+                                <span class="font-bold text-coffee-800 text-sm whitespace-nowrap ml-4">Rp 22.000</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="font-semibold text-coffee-900 text-sm">Mango Smoothies Creamy</p>
+                                    <p class="text-coffee-500 text-xs">Mangga segar + yogurt + susu</p>
+                                </div>
+                                <span class="font-bold text-coffee-800 text-sm whitespace-nowrap ml-4">Rp 25.000</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="font-semibold text-coffee-900 text-sm">Nutri Grape Creamy</p>
+                                    <p class="text-coffee-500 text-xs">Anggur segar + susu creamy</p>
+                                </div>
+                                <span class="font-bold text-coffee-800 text-sm whitespace-nowrap ml-4">Rp 23.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kategori 3: Makanan -->
+                <div class="bg-white rounded-2xl shadow-md border border-coffee-100/50 overflow-hidden">
+                    <button class="accordion-trigger w-full flex items-center justify-between px-5 sm:px-6 py-4 sm:py-5 text-left" aria-expanded="false">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center text-red-600"><i class="fa-solid fa-utensils"></i></span>
+                            <span class="font-serif font-bold text-lg text-coffee-900">Makanan</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-coffee-500 text-sm"></i>
+                    </button>
+                    <div class="accordion-content px-5 sm:px-6">
+                        <div class="pb-5 space-y-3 border-t border-coffee-100 pt-3">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="font-semibold text-coffee-900 text-sm">Roti Bakar Edankeun</p>
+                                    <p class="text-coffee-500 text-xs">Roti tebal + butter + cokelat + keju</p>
+                                </div>
+                                <span class="font-bold text-coffee-800 text-sm whitespace-nowrap ml-4">Rp 20.000</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="font-semibold text-coffee-900 text-sm">Dimsum Kuah</p>
+                                    <p class="text-coffee-500 text-xs">Dimsum ayam + kuah kaldu hangat</p>
+                                </div>
+                                <span class="font-bold text-coffee-800 text-sm whitespace-nowrap ml-4">Rp 18.000</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="font-semibold text-coffee-900 text-sm">Mix Platter</p>
+                                    <p class="text-coffee-500 text-xs">Kentang goreng + chicken wings + onion rings</p>
+                                </div>
+                                <span class="font-bold text-coffee-800 text-sm whitespace-nowrap ml-4">Rp 30.000</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="font-semibold text-coffee-900 text-sm">Nasi Goreng Spesial</p>
+                                    <p class="text-coffee-500 text-xs">Nasi goreng kampung + telur + kerupuk</p>
+                                </div>
+                                <span class="font-bold text-coffee-800 text-sm whitespace-nowrap ml-4">Rp 25.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA kecil di bawah accordion -->
+            <div class="text-center mt-8">
+                <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20pesan%20makanan%20dan%20minuman%20di%20Seruput" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-semibold px-5 py-3 rounded-full text-sm transition-all duration-300 shadow-md hover:shadow-lg">
+                    <i class="fa-brands fa-whatsapp"></i> Pesan Menu via WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== GALERI SUASANA ==================== -->
+    <section id="galeri" class="py-16 sm:py-20 lg:py-24 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-12 sm:mb-16">
+                <span class="text-coffee-500 font-semibold tracking-widest uppercase text-xs sm:text-sm">Suasana Kafe</span>
+                <h2 class="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-coffee-900 mt-2 mb-3">
+                    Sudut Instagramable di Seruput
+                </h2>
+                <p class="text-coffee-600 max-w-lg mx-auto text-sm sm:text-base">
+                    Setiap sudut didesain untuk bikin kamu betah dan feed Instagram makin estetik. <span class="text-coffee-500 font-medium">Klik foto untuk memperbesar.</span>
+                </p>
+            </div>
+
+            <!-- Masonry Gallery -->
+            <div class="masonry-grid" id="galleryGrid">
+                <div class="masonry-item" data-full="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=750&q=80"
+                    alt="Interior kafe dengan cahaya hangat" loading="lazy">
+                </div>
+                <div class="masonry-item" data-full="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=500&q=80"
+                    alt="Meja kayu dengan kopi dan laptop" loading="lazy">
+                </div>
+                <div class="masonry-item" data-full="https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                    <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=800&q=80"
+                    alt="Sudut baca yang cozy" loading="lazy">
+                </div>
+                <div class="masonry-item" data-full="https://images.unsplash.com/photo-1507133750040-4a8f57021571?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                    <img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
+                    alt="Barista sedang meracik kopi" loading="lazy">
+                </div>
+                <div class="masonry-item" data-full="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=700&q=80"
+                    alt="Suasana makan malam di kafe" loading="lazy">
+                </div>
+                <div class="masonry-item" data-full="https://images.unsplash.com/photo-1521017432531-fbd92d768814?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                    <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=550&q=80"
+                    alt="Rak buku dan tanaman di kafe" loading="lazy">
+                </div>
+                <div class="masonry-item" data-full="https://images.unsplash.com/photo-1467189386127-c4e5e31ee213?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                    <img src="https://images.unsplash.com/photo-1467189386127-c4e5e31ee213?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=650&q=80"
+                    alt="Gelas kopi dengan latte art" loading="lazy">
+                </div>
+                <div class="masonry-item" data-full="https://images.unsplash.com/photo-1559304822-9eb2813c9844?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                    <img src="https://images.unsplash.com/photo-1559304822-9eb2813c9844?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=500&q=80"
+                    alt="Area outdoor kafe" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LIGHTBOX OVERLAY ==================== -->
+    <div id="lightbox" class="lightbox-overlay">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <span class="lightbox-prev" id="lightboxPrev"><i class="fa-solid fa-chevron-left"></i></span>
+        <span class="lightbox-next" id="lightboxNext"><i class="fa-solid fa-chevron-right"></i></span>
+        <img src="" alt="Lightbox Image" id="lightboxImg">
+    </div>
+
+    <!-- ==================== TESTIMONI ==================== -->
+    <section id="testimoni" class="py-16 sm:py-20 lg:py-24 bg-warm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-12 sm:mb-16">
+                <span class="text-coffee-500 font-semibold tracking-widest uppercase text-xs sm:text-sm">Testimoni</span>
+                <h2 class="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-coffee-900 mt-2 mb-3">
+                    Kata Mereka yang Sudah Mampir
+                </h2>
+                <p class="text-coffee-600 max-w-lg mx-auto text-sm sm:text-base">
+                    Bukan kata kami, tapi kata pelanggan setia Seruput.
+                </p>
+            </div>
+
+            <!-- Testimoni Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Testimoni 1 -->
+                <div class="testimonial-card relative bg-white rounded-2xl p-6 sm:p-7 shadow-md border border-coffee-100/50 pt-8">
+                    <div class="flex items-center gap-1 mb-4 text-amber-500">
+                        <i class="fa-solid fa-star text-sm"></i>
+                        <i class="fa-solid fa-star text-sm"></i>
+                        <i class="fa-solid fa-star text-sm"></i>
+                        <i class="fa-solid fa-star text-sm"></i>
+                        <i class="fa-solid fa-star text-sm"></i>
+                    </div>
+                    <p class="text-coffee-700 text-sm leading-relaxed mb-5 italic">
+                        "Tempat WFC paling enak se-Bandung! Kopinya nendang, Wi-Fi kenceng, dan suasananya bikin betah dari pagi sampai sore. Langganan tetap nih!"
+                    </p>
+                    <div class="flex items-center gap-3 border-t border-coffee-100 pt-4">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&h=80&q=80"
+                        alt="Foto Rina"
+                        class="w-10 h-10 rounded-full object-cover"
+                        loading="lazy">
+                        <div>
+                            <p class="font-semibold text-coffee-900 text-sm">Rina M.</p>
+                            <p class="text-coffee-500 text-xs">Freelancer Digital</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimoni 2 -->
+                <div class="testimonial-card relative bg-white rounded-2xl p-6 sm:p-7 shadow-md border border-coffee-100/50 pt-8">
+                    <div class="flex items-center gap-1 mb-4 text-amber-500">
+                        <i class="fa-solid fa-star text-sm"></i>
+                        <i class="fa-solid fa-star text-sm"></i>
+                        <i class="fa-solid fa-star text-sm"></i>
+                        <i class="fa-solid fa-star text-sm"></i>
+                        <i class="fa-solid fa-star text-sm"></i>
+                    </div>
+                    <p class="text-coffee-700 text-sm leading-relaxed mb-5 italic">
+                        "Es Kopi Susu Aren-nya juara! Roti Bakar Edankeun juga bikin nagih. Pokoknya setiap weekend wajib ke sini bareng teman-teman."
+                    </p>
+                    <div class="flex items-center gap-3 border-t border-coffee-100 pt-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&h=80&q=80"
+                        alt="Foto Andi"
+                        class="w-10 h-10 rounded-full object-cover"
+                        loading="lazy">
+                        <div>
+                            <p class="font-semibold text-coffee-900 text-sm">Andi P.</p>
+                            <p class="text-coffee-500 text-xs">Mahasiswa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimoni 3 -->
+                <div class="testimonial-card relative bg-white rounded-2xl p-6 sm:p-7 shadow-md border border-coffee-100/50 pt-8">
+                    <div class="flex items-center gap-1 mb-4 text-amber-500">
+                        <i class="fa-solid fa-star text-sm"></i>
+                        <i class="fa-solid fa-star text-sm"></i>
+                        <i class="fa-solid fa-star text-sm"></i>
+                        <i class="fa-solid fa-star text-sm"></i>
+                        <i class="fa-solid fa-star-half-stroke text-sm"></i>
+                    </div>
+                    <p class="text-coffee-700 text-sm leading-relaxed mb-5 italic">
+                        "Suasananya homey banget, cocok buat meeting santai atau nugas. Matcha Latte-nya otentik, jarang nemu yang seenak ini di Bandung."
+                    </p>
+                    <div class="flex items-center gap-3 border-t border-coffee-100 pt-4">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&h=80&q=80"
+                        alt="Foto Sarah"
+                        class="w-10 h-10 rounded-full object-cover"
+                        loading="lazy">
+                        <div>
+                            <p class="font-semibold text-coffee-900 text-sm">Sarah L.</p>
+                            <p class="text-coffee-500 text-xs">Content Creator</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PETA LOKASI (GOOGLE MAPS) ==================== -->
+    <section id="peta" class="py-16 sm:py-20 lg:py-24 bg-coffee-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-10 sm:mb-14">
+                <span class="text-coffee-400 font-semibold tracking-widest uppercase text-xs sm:text-sm">Lokasi Kami</span>
+                <h2 class="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-cream mt-2 mb-3">
+                    Temukan Kami di Ujungberung
+                </h2>
+                <p class="text-coffee-300 max-w-lg mx-auto text-sm sm:text-base">
+                    Kunjungi langsung atau reservasi dulu biar dapat tempat terbaik.
+                </p>
+            </div>
+
+            <!-- Google Maps iframe -->
+            <div class="map-container shadow-2xl shadow-black/30 ring-1 ring-coffee-800/60">
+                <!--
+                ============================================================
+                TEMPAT MENGGANTI LINK GOOGLE MAPS:
+                Ganti seluruh URL di dalam atribut src di bawah ini dengan
+                link embed Google Maps milik Anda sendiri.
+                Cara: Buka Google Maps > Cari lokasi > Klik "Bagikan" >
+                Pilih tab "Sematkan peta" > Salin kode iframe > Ambil
+                bagian 'src="..."' lalu tempelkan di sini.
+                ============================================================
+                -->
+                <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9792!2d107.6987!3d-6.9147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7c5c5c5c5c5%3A0x0!2zNsKwNTQnNTIuOSJTIDEwN8KwNDEnNTUuMyJF!5e0!3m2!1sid!2sid!4v1690000000000"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Peta Lokasi Seruput Coffee Shop di Ujungberung Bandung">
+            </iframe>
+        </div>
+
+        <!-- Alamat di bawah peta -->
+        <div class="text-center mt-6 sm:mt-8">
+            <p class="text-coffee-300 text-sm sm:text-base flex items-center justify-center gap-2 flex-wrap">
+                <i class="fa-solid fa-location-dot text-coffee-400"></i>
+                <span>Jl. Ujungberung Indah No. 42, Kec. Ujungberung, Kota Bandung, Jawa Barat 40611</span>
+            </p>
+            <p class="text-coffee-500 text-xs mt-1">📍 5 menit dari Terminal Ujungberung</p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FORM INQUIRY → WHATSAPP ==================== -->
+<section id="reservasi" class="py-16 sm:py-20 lg:py-24 bg-warm">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-10 sm:mb-14">
+            <span class="text-coffee-500 font-semibold tracking-widest uppercase text-xs sm:text-sm">Reservasi & Inquiry</span>
+            <h2 class="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-coffee-900 mt-2 mb-3">
+                Booking Tempat atau Tanya-Tanya Dulu
+            </h2>
+            <p class="text-coffee-600 max-w-lg mx-auto text-sm sm:text-base">
+                Isi form singkat di bawah, lalu kami akan balas secepat mungkin via WhatsApp.
+            </p>
+        </div>
+
+        <!-- Form -->
+        <div class="bg-white rounded-2xl shadow-md border border-coffee-100/50 p-6 sm:p-8">
+            <form id="inquiryForm" class="space-y-5">
+                <!-- Nama -->
+                <div>
+                    <label for="nama" class="block text-sm font-semibold text-coffee-800 mb-1.5">
+                        <i class="fa-solid fa-user text-coffee-500 mr-1"></i> Nama Kamu
+                    </label>
+                    <input type="text" id="nama" name="nama" required
+                    class="form-input w-full bg-cream border border-coffee-200 rounded-xl px-4 py-3 text-sm text-coffee-900 placeholder:text-coffee-400 focus:outline-none"
+                    placeholder="Contoh: Rina M.">
+                </div>
+
+                <!-- Nomor WhatsApp -->
+                <div>
+                    <label for="wa" class="block text-sm font-semibold text-coffee-800 mb-1.5">
+                        <i class="fa-brands fa-whatsapp text-green-600 mr-1"></i> Nomor WhatsApp
+                    </label>
+                    <input type="tel" id="wa" name="wa" required
+                    class="form-input w-full bg-cream border border-coffee-200 rounded-xl px-4 py-3 text-sm text-coffee-900 placeholder:text-coffee-400 focus:outline-none"
+                    placeholder="Contoh: 08123456789">
+                </div>
+
+                <!-- Kategori Inquiry -->
+                <div>
+                    <label for="kategori" class="block text-sm font-semibold text-coffee-800 mb-1.5">
+                        <i class="fa-solid fa-tag text-coffee-500 mr-1"></i> Keperluan
+                    </label>
+                    <select id="kategori" name="kategori"
+                    class="form-input w-full bg-cream border border-coffee-200 rounded-xl px-4 py-3 text-sm text-coffee-900 focus:outline-none appearance-none">
+                    <option value="Reservasi Tempat">📅 Reservasi Tempat</option>
+                    <option value="Tanya Menu & Harga">📋 Tanya Menu & Harga</option>
+                    <option value="Pesan Antar / Takeaway">🛵 Pesan Antar / Takeaway</option>
+                    <option value="Event / Private Party">🎉 Event / Private Party</option>
+                    <option value="Kerjasama & Kolaborasi">🤝 Kerjasama & Kolaborasi</option>
+                    <option value="Lainnya">💬 Lainnya</option>
+                </select>
+            </div>
+
+            <!-- Jumlah Orang (opsional) -->
+            <div>
+                <label for="jumlah" class="block text-sm font-semibold text-coffee-800 mb-1.5">
+                    <i class="fa-solid fa-people-group text-coffee-500 mr-1"></i> Jumlah Orang <span class="text-coffee-400 font-normal">(opsional)</span>
+                </label>
+                <input type="number" id="jumlah" name="jumlah" min="1" max="50"
+                class="form-input w-full bg-cream border border-coffee-200 rounded-xl px-4 py-3 text-sm text-coffee-900 placeholder:text-coffee-400 focus:outline-none"
+                placeholder="Contoh: 4">
+            </div>
+
+            <!-- Tanggal Kunjungan (opsional) -->
+            <div>
+                <label for="tanggal" class="block text-sm font-semibold text-coffee-800 mb-1.5">
+                    <i class="fa-solid fa-calendar text-coffee-500 mr-1"></i> Tanggal Kunjungan <span class="text-coffee-400 font-normal">(opsional)</span>
+                </label>
+                <input type="date" id="tanggal" name="tanggal"
+                class="form-input w-full bg-cream border border-coffee-200 rounded-xl px-4 py-3 text-sm text-coffee-900 focus:outline-none">
+            </div>
+
+            <!-- Pesan Tambahan (opsional) -->
+            <div>
+                <label for="pesan" class="block text-sm font-semibold text-coffee-800 mb-1.5">
+                    <i class="fa-solid fa-message text-coffee-500 mr-1"></i> Pesan Tambahan <span class="text-coffee-400 font-normal">(opsional)</span>
+                </label>
+                <textarea id="pesan" name="pesan" rows="3"
+                class="form-input w-full bg-cream border border-coffee-200 rounded-xl px-4 py-3 text-sm text-coffee-900 placeholder:text-coffee-400 focus:outline-none resize-none"
+            placeholder="Tulis pesan atau request khusus..."></textarea>
+        </div>
+
+        <!-- Tombol Submit -->
+        <button type="submit"
+        class="w-full inline-flex items-center justify-center gap-3 bg-green-500 hover:bg-green-400 text-white font-bold px-6 py-4 rounded-full text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <i class="fa-brands fa-whatsapp text-xl"></i> Kirim via WhatsApp
+    </button>
+
+    <p class="text-coffee-400 text-xs text-center mt-3">
+        <i class="fa-solid fa-lock mr-1"></i> Data kamu aman, langsung dikirim sebagai chat WhatsApp.
+    </p>
+</form>
+</div>
+</div>
+</section>
+
+<!-- ==================== FOOTER: JAM BUKA & CTA WHATSAPP ==================== -->
+<footer class="bg-coffee-950 text-cream py-16 sm:py-20 lg:py-24 border-t border-coffee-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header Footer -->
+        <div class="text-center mb-12 sm:mb-16">
+            <span class="text-coffee-400 font-semibold tracking-widest uppercase text-xs sm:text-sm">Jam Operasional</span>
+            <h2 class="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-cream mt-2 mb-3">
+                Siap Menyambut Kedatanganmu
+            </h2>
+            <p class="text-coffee-300 max-w-lg mx-auto text-sm sm:text-base">
+                Datang langsung atau reservasi dulu biar dapat tempat terbaik.
+            </p>
+        </div>
+
+        <!-- Grid: Jam Buka & Kontak -->
+        <div class="max-w-2xl mx-auto">
+            <div class="bg-coffee-900/60 rounded-2xl p-5 sm:p-8 border border-coffee-700/40">
+                <h3 class="font-serif font-bold text-lg sm:text-xl text-cream mb-5 text-center">
+                    <i class="fa-solid fa-clock text-coffee-400 mr-2"></i> Jam Buka
+                </h3>
+                <ul class="space-y-3 text-sm text-coffee-300 max-w-xs mx-auto">
+                    <li class="flex justify-between border-b border-coffee-800 pb-2">
+                        <span>Senin – Jumat</span>
+                        <span class="font-semibold text-cream">08:00 – 22:00</span>
+                    </li>
+                    <li class="flex justify-between border-b border-coffee-800 pb-2">
+                        <span>Sabtu</span>
+                        <span class="font-semibold text-cream">07:00 – 23:00</span>
+                    </li>
+                    <li class="flex justify-between border-b border-coffee-800 pb-2">
+                        <span>Minggu</span>
+                        <span class="font-semibold text-cream">07:00 – 23:00</span>
+                    </li>
+                    <li class="flex justify-between">
+                        <span>Hari Libur Nasional</span>
+                        <span class="font-semibold text-cream">08:00 – 21:00</span>
+                    </li>
+                </ul>
+                <div class="mt-6 pt-4 border-t border-coffee-800 text-center space-y-1">
+                    <p class="text-coffee-400 text-xs">
+                        <i class="fa-solid fa-phone mr-1"></i> (022) 1234-5678
+                    </p>
+                    <p class="text-coffee-400 text-xs">
+                        <i class="fa-solid fa-envelope mr-1"></i> halo@seruputcoffee.com
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA WhatsApp Besar -->
+        <div class="text-center mt-10 sm:mt-12">
+            <p class="text-coffee-300 text-sm mb-4">Ingin reservasi tempat atau pesan antar?</p>
+            <a href="https://wa.me/6281234567890?text=Halo%20Seruput%20Coffee%2C%20saya%20ingin%20reservasi%20tempat%20untuk..."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-400 text-white font-bold px-8 sm:px-10 py-4 sm:py-5 rounded-full text-lg sm:text-xl shadow-2xl hover:shadow-green-500/40 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
+            <i class="fa-brands fa-whatsapp text-2xl sm:text-3xl"></i>
+            Reservasi via WhatsApp
+        </a>
+        <p class="text-coffee-500 text-xs mt-3">Atau langsung klik untuk pesan via GoFood / GrabFood</p>
+    </div>
+
+    <!-- Divider -->
+    <hr class="border-coffee-800 my-10 sm:my-12 max-w-4xl mx-auto">
+
+    <!-- Bottom Footer -->
+    <div class="text-center text-coffee-500 text-xs sm:text-sm space-y-1">
+        <p>&copy; 2025 <strong class="text-coffee-400">Seruput Coffee Shop</strong>. All rights reserved.</p>
+        <p class="text-coffee-600">Dibuat dengan ☕ di Ujungberung, Bandung.</p>
+    </div>
+</div>
+</footer>
+
+<!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
+<a href="https://wa.me/6281234567890?text=Halo%20Seruput%20Coffee%2C%20saya%20tertarik%20untuk%20reservasi!"
+target="_blank"
+rel="noopener noreferrer"
+class="fixed bottom-6 right-6 z-50 w-14 h-14 sm:w-16 sm:h-16 bg-green-500 hover:bg-green-400 text-white rounded-full flex items-center justify-center shadow-2xl float-wa-pulse transition-all duration-300 hover:scale-110"
+aria-label="Chat via WhatsApp">
+<i class="fa-brands fa-whatsapp text-2xl sm:text-3xl"></i>
+</a>
+
+<!-- ==================== SCRIPTS ==================== -->
+<script>
+    // ============ MOBILE MENU TOGGLE ============
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = menuToggle.querySelector('i');
+
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        if (mobileMenu.classList.contains('hidden')) {
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
+        } else {
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-xmark');
+        }
+    });
+
+    // Tutup mobile menu saat klik link
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
+        });
+    });
+
+    // ============ NAVBAR BACKGROUND ON SCROLL ============
+    const navbar = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('shadow-md');
+            navbar.classList.remove('bg-cream/85');
+            navbar.classList.add('bg-cream/95');
+        } else {
+            navbar.classList.remove('shadow-md');
+            navbar.classList.remove('bg-cream/95');
+            navbar.classList.add('bg-cream/85');
+        }
+    });
+
+    // ============ ACCORDION MENU ============
+    document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+        trigger.addEventListener('click', function() {
+            const content = this.nextElementSibling; // div.accordion-content
+            const isOpen = this.classList.contains('open');
+
+            // Tutup semua accordion lain
+            document.querySelectorAll('.accordion-trigger').forEach(otherTrigger => {
+                if (otherTrigger !== trigger) {
+                    otherTrigger.classList.remove('open');
+                    otherTrigger.setAttribute('aria-expanded', 'false');
+                    otherTrigger.nextElementSibling.classList.remove('open');
+                }
+            });
+
+            // Toggle yang diklik
+            if (isOpen) {
+                this.classList.remove('open');
+                this.setAttribute('aria-expanded', 'false');
+                content.classList.remove('open');
+            } else {
+                this.classList.add('open');
+                this.setAttribute('aria-expanded', 'true');
+                content.classList.add('open');
+            }
+        });
+    });
+
+    // ============ LIGHTBOX GALLERY ============
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    const galleryItems = Array.from(document.querySelectorAll('.masonry-item'));
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+        currentIndex = index;
+        const fullSrc = galleryItems[currentIndex].getAttribute('data-full');
+        lightboxImg.src = fullSrc;
+        lightboxImg.alt = galleryItems[currentIndex].querySelector('img').alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden'; // prevent scrolling
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+        const fullSrc = galleryItems[currentIndex].getAttribute('data-full');
+        lightboxImg.src = fullSrc;
+        lightboxImg.alt = galleryItems[currentIndex].querySelector('img').alt;
+    }
+
+    function showNext() {
+        currentIndex = (currentIndex + 1) % galleryItems.length;
+        const fullSrc = galleryItems[currentIndex].getAttribute('data-full');
+        lightboxImg.src = fullSrc;
+        lightboxImg.alt = galleryItems[currentIndex].querySelector('img').alt;
+    }
+
+    // Event listeners
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', () => openLightbox(index));
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', showPrev);
+    lightboxNext.addEventListener('click', showNext);
+
+    // Tutup lightbox dengan klik di luar gambar (pada overlay)
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showPrev();
+        if (e.key === 'ArrowRight') showNext();
+    });
+
+    // ============ FORM INQUIRY → WHATSAPP ============
+    const inquiryForm = document.getElementById('inquiryForm');
+    const WA_NUMBER = '6281234567890'; // GANTI dengan nomor WhatsApp bisnis kamu
+
+    inquiryForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const nama = document.getElementById('nama').value.trim();
+        const wa = document.getElementById('wa').value.trim();
+        const kategori = document.getElementById('kategori').value;
+        const jumlah = document.getElementById('jumlah').value.trim();
+        const tanggal = document.getElementById('tanggal').value;
+        const pesan = document.getElementById('pesan').value.trim();
+
+        // Susun pesan WhatsApp
+        let message = `Halo Seruput Coffee,%0A%0A`;
+        message += `*Nama:* ${nama}%0A`;
+        message += `*Nomor WA:* ${wa}%0A`;
+        message += `*Keperluan:* ${kategori}%0A`;
+
+        if (jumlah) {
+            message += `*Jumlah Orang:* ${jumlah}%0A`;
+        }
+        if (tanggal) {
+            // Format tanggal ke bahasa Indonesia
+            const dateObj = new Date(tanggal);
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = dateObj.toLocaleDateString('id-ID', options);
+            message += `*Tanggal:* ${formattedDate}%0A`;
+        }
+        if (pesan) {
+            message += `*Pesan Tambahan:* ${pesan}%0A`;
+        }
+
+        message += `%0ATerima kasih.`;
+
+        // Buka WhatsApp
+        const waLink = `https://wa.me/${WA_NUMBER}?text=${message}`;
+        window.open(waLink, '_blank', 'noopener,noreferrer');
+
+        // Reset form (opsional)
+        inquiryForm.reset();
+    });
+</script>
+</body>
+</html>
+
+git add index.html
+git commit -m "Initial commit: Seruput Coffee landing page"
+git push origin main
